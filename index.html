@@ -6,97 +6,100 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style2.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<script src="script.js"></script>
 </head>
 
-<main>
+<header>
 
-	<header>
-
-		<div class="header">
-			
-				<h1 style="display: grid; color: white;
-				background-color: rgba(80, 72, 61, 0.5); position: relative; align-items: center; justify-items: center;"></style><span>Home</span></h1>
-
-			<nav class="site-navigation">
-
-				<button class="menu-toggle"
-						aria-controls="content-navigation"
-						aria-expanded="false">
-					<span class="visually-hidden">Menu</span>
-					<div class="hamburger" aria-hidden="true"></div> 		
-				</button>
-
-				<ul data-state="closed" class="content-navigation" id="content-navigation">
-					<li><a href=""><i class="PLACEHOLDER"></i>Salad Bar</a></li>
-					<li><a href=""><i class="PLACEHOLDER"></i>Italian</a></li>
-					<li><a href=""><i class="PLACEHOLDER"></i>Chef's Table</a></li>
-					<li><a href=""><i class="PLACEHOLDER"></i>Vegetarian</a></li>
-					<li><a href=""><i class="PLACEHOLDER"></i>Deli</a></li>
-					<li><a href=""><i class="PLACEHOLDER"></i>Grill</a></li>
-					<li><a href=""><i class="PLACEHOLDER"></i>Soup Island</a></li>
-					<li><a href=""><i class="PLACEHOLDER"></i>Bravo</a></li>
-				</ul>
-				
-			</nav>	
+	<div class="header">
+		
+		<h1 style="display: grid; color: white; grid-area: 1/1;
+		background-color: rgba(116, 105, 91, 0.5); position: relative; align-items: center; justify-items: center; height: 8vh;"></style><span></span></h1>
+		<div class="cool">
+			<button class= "togglemenu" onclick="toggleMenu()">Menu</button>
+			<ul id="menu">
+				<li><a href="">Salad Bar</a></li>
+				<li><a href="">Italian</a></li>
+				<li><a href="">Chef's Table</a></li>
+				<li><a href="">Vegetarian</a></li>
+				<li><a href="">Deli</a></li>
+				<li><a href="">Grill</a></li>
+				<li><a href="">Soup Island</a></li>
+				<li><a href="">Bravo</a></li>
+			</ul>
 		</div>
+	
+	</div>
 
-	</header>
-
-	<body>
-		<div class="container">
-			<div class="post">
-				<div class="post-content">
-					<h2>John Doe</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed massa eget leo vehicula efficitur. Nunc euismod, arcu eu scelerisque sagittis, odio dolor semper arcu, in ultricies est justo vel ipsum.</p>
-					<div class="post-footer">
-						<button>Like</button>
-						<button>Comment</button>
-						<button>Share</button>
-					</div>
-				</div>
-
-				<button class="scroll-button">&gt;
-					<button class="form-button">Fill out form</button>
+</header>
 
 
-				</button>
-
-				<div class="form-wrapper">
-				<form class="form">
-					<label for="name">Name:</label>
-					<input type="text" id="name" name="name" required>
-
-					<label for="email">Email:</label>
-					<input type="email" id="email" name="email" required>
-
-					<label for="message">Message:</label>
-					<textarea id="message" name="message" required></textarea>
-
-					<button type="submit">Submit</button>
-				</form>
-				</div>
-
-
-
-				
-			</div>
-
-
-
-			</div>
-		<div>
-		
-		
-
-	</body>
-
-</main>
 
 
 	
 
 
+<main>
+	<div class="container" id="container">
+		<div class="cafpic"><img src="cafeteria.jpg" alt="oops, no image here!"></div>
+		<div class="post">
+			<div class="post-content">
+				<h2>John Doe</h2>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed massa eget leo vehicula efficitur. Nunc euismod, arcu eu scelerisque sagittis, odio dolor semper arcu, in ultricies est justo vel ipsum.</p>
+				<div class="post-footer">
+					<button>Like</button>
+					<button>Disike</button>
+					<button>Comment</button>
+					<button>Share</button>
+				</div>
+			</div>
+			
+		</div>
 
 
+		<button class="scroll-button">&gt;
+
+
+		</button>
+
+		<div class="form-wrapper">
+			<form class="form">
+			<label for="name">Name:</label>
+			<input type="text" id="name" name="name" required>
+			<textarea id="message" name="message" required></textarea>
+
+			<label for="email">Email:</label>
+			<input type="email" id="email" name="email" required>
+			<textarea id="message" name="message" required></textarea>
+
+			<label for="message">Message:</label>
+			<textarea id="message" name="message" required></textarea>
+
+			<button type="submit">Submit</button>
+			</form>
+		</div>
+		
+		<div class="test" id="post">
+			<h1>I love leila!</h1>
+			<h1>My Post</h1>
+			<p>Description: <span id="feedback"></span></p>
+			<button onclick="post.addComment()">Add Comment</button>
+			<ul id="comments"></ul>
+
+
+
+
+
+		</div>
+		
+		<div class="newpost">
+			<div class="make">Add your feedback here!</div>
+			<button class="post-button">
+				<i class="fa-solid fa-plus fa-2xl"></i>
+			</button>
+		</div>	
+	<div>
+</main>
 </html>

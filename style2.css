@@ -5,73 +5,40 @@
     box-sizing: border-box;
 }
 
-
-.body {
-    display: grid;
-    /* grid-template-columns: 100px 100px 100px 100px 100px 100px; */
-    grid-template-rows: 150px 1000px;
-    justify-items: center;
-    align-items: center;
-    box-sizing: border-box;
-    margin: 0px;
-
-
-}
-
-/* body{
-    background-image: url(cafeteRia.jpg); */
-
-/* } */
-    
-    
-
-    /* background-color: transparent; */
-    
-
-
-
-
 header {
-    width: 100dvw;
-    height: 150px;
-    overflow: hidden;
-    background-color: rgba(80, 72, 61, 0.5);
-    
-    
-    position: relative;
-    padding: 1em 0;
-}
-
-.container {
-    display: grid;
-    background-image: url(cafeteria.jpg);
-}
-
-.post{
-    grid-template-columns: 1fr 1fr;
-
-
-}
-
-.cafpic {
-    width: 50%;
-    max-height: 150px;
-    object-fit: cover;
-    object-position: 50%;
-    justify-self: center;
+    width: 100%;
+    height: 8vh;
+    overflow: visible;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    position: fixed;
     align-self: center;
-    object-position: 50dvh;
+    justify-self: center;
+}
 
-
+.header{
+  display: grid;
+    grid-template-columns: 10dvw, 80dvw, 10dvw;
+    width: 100%;
+    height: 8vh;
+    overflow: visible;
+    background-color: rgba(80, 72, 61, 0.5);
+    z-index: 1001;
+    position: fixed;
+    align-self: center;
+    justify-self: center;
 }
 
 .menu-toggle {
     padding: 1em;
     background: transparent;
     border: 0;
-    position: absolute;
+    position: relative;
     top: 0.5em;
-    right: 0.5em;
+    bottom: 0.5em;
+    align-items: center; 
+    justify-items: center;
     cursor: pointer;
   }
 
@@ -85,74 +52,69 @@ white-space: nowrap;
 width: 1px;
 }
 
+main {
+    position: relative;
+    margin-top: 8vh;
+    display: grid;
+
+    
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 100%;
+    max-height: calc(967px - 8vh);
+    grid-template-rows: 10cqh 3fr 10cqh;
+    overflow: hidden;
+    /* background-image: url("cafeteria.jpg"); */
+    background-position: center;
+    background-size: cover;
+    background-color: rgba(0, 0, 0, 0);
+    opacity: 1;
+}
+
+.post{
+  grid-area: 2/1;
+    /* align-self: center; */
+    justify-self: center;
+}
+
 .scroll-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background-color: #ccc;
-  color: #fff;
-  font-size: 24px;
-  cursor: pointer;
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 1;
-}
-
-.scroll-button:hover {
-  background-color: #666;
-}
-
-/* Scroll content horizontally on click */
-.scroll-button:active {
-  background-color: #333;
-}
-
-/* Hide button when there's no more horizontal scrolling to be done */
-.content {
-  overflow-x: hidden;
-}
-
-.content::-webkit-scrollbar {
-  width: 0;
-  height: 0;
-}
-
-/* Apply horizontal scrolling */
-.content::-webkit-scrollbar-thumb {
-  background-color: #ccc;
-}
-
-.content::-webkit-scrollbar-track {
-  background-color: #f1f1f1;
-}
-
-/* Apply the scrolling action to the button */
-.scroll-button:active + .content {
-  scroll-behavior: smooth;
-  scroll-snap-align: start;
-  scroll-snap-type: x mandatory;
-  scroll-snap-points-x: repeat(100%);
-  animation: scroll-left 2s linear infinite;
-}
-
-@keyframes scroll-left {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3em;
+    height: 3em;
+    border-radius: 50%;
+    border-color: transparent;
+    background-color: #b1b1b1;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
 }
 
 .form-wrapper {
-    display: none;
+  grid-area: 2/2;
+  align-self: center;
+  justify-self: center;
+    /* display: none; */
   }
-  
+
+  .test{
+    grid-area: 2/3;
+    position: relative;
+    /* align-self: center; */
+    justify-self: center;
+    
+
+  }
+
   .form-button {
     background-color: #007bff;
     color: #fff;
@@ -167,7 +129,28 @@ width: 1px;
   }
   
   .form-button:focus {
-    outline: none;
+    border-style:solid;
+    border-color: #000000;
+    border-radius: 0.3rem;
+  }
+
+  .form button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .form button:hover {
+    background-color: #0069d9;
+  }
+  
+  .form button:focus {
+    outline: solid;
+    border-color: #000000;
+    border-radius: 0.3rem;;
   }
   
   .form-wrapper.active {
@@ -181,7 +164,7 @@ width: 1px;
   }
   
   .form {
-    background-color: #fff;
+    background-color: #999999;
     width: 400px;
     padding: 20px;
     margin: 50px auto;
@@ -204,120 +187,184 @@ width: 1px;
   .form input,
   .form textarea {
     padding: 5px;
-    border: 1px solid #ccc;
+    border: 1px solid #ff0000;
     border-radius: 3px;
     font-size: 16px;
   }
-  
-  .form button {
-    background-color: #007bff;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .form button:hover {
-    background-color: #0069d9;
-  }
-  
-  .form button:focus {
-    outline: none;
-  }
-/* .content-navigation {
-    position: absolute;
-    top: 100%;
-    right: 0%;
-    background: #464655;
-    transition: clip-path ease-in-out 700ms;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-  .content-navigation[data-state="opened"] {
-    animation: clipPathCircleOpen 750ms ease-in-out forwards;
-    display: block;
-  }
-  
-  .content-navigation[data-state="closing"] {
-    animation: clipPathCircleClose 750ms ease-in-out forwards;
-  }
-  .content-navigation[data-state="closed"] {
-    display: none;
-  }
-  
-  @keyframes clipPathCircleOpen {
-    0% { clip-path: circle(0% at top right); }
-    100% { clip-path: circle(250% at top right); }
-  }
-  @keyframes clipPathCircleClose {
-    0% { clip-path: circle(250% at top right); }
-    100% { clip-path: circle(0% at top right); }
-  }
-  
-  .site-nav li {
-    border-bottom: 1px solid #575766;
-  }
-  
-  .site-nav li:last-child {
-    border-bottom: none;
-  }
-  
-  .site-nav aw {
-    color: #ebebd3;
-    display: block;
-    padding: 2em 4em 2em 1.5em;
-    text-transform: uppercase;
-    text-decoration: none;
-  }
-  
-  .site-nav a:hover,
-  .site-nav a:focus {
-    background: #e4b363;
-    color: #464655;
-  }
-  
-  .site-nav--icon {
-    display: inline-block;
-    font-size: 1.5em;
-    margin-right: 1em;
-    width: 1.1em;
-    text-align: right;
-    color: rgba(255, 255, 255, 0.4);
-  }
-  /*  */
 
-/*   
-  .hamburger,
-  .hamburger::before,
-  .hamburger::after {
-    content: "";
-    display: block;
-    background: #ebebd3;
-    height: 3px;
-    width: 1.75em;
-    border-radius: 3px;
-    transition: all ease-in-out 500ms;
-  }
-  
-  .hamburger::before {
-    transform: translateY(-6px);
-  }
-  
-  .hamburger::after {
-    transform: translateY(3px);
-  }
-  
-  [aria-expanded="true"] .hamburger {
-    transform: rotate(45deg);
-  }
-  
-  [aria-expanded="true"] .hamburger::before {
-    opacity: 0;
-  }
-  
-  [aria-expanded="true"] .hamburger::after {
-    transform: translateY(-3px) rotate(-90deg);
-  }
-  /*  */
+
+.newpost{
+    position: fixed;
+    right: 8.5rem;
+    bottom: 4rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+
+}
+
+.make{
+    grid-column-end: 1 / 2;
+    font-size: larger;
+    font-weight: 600;
+    border-width: 0.2rem;
+    border-style:solid;
+    border-color: #000000;
+    border-radius: 0.3rem;
+    color: #000000;
+    background-color: #fff;
+    align-self: center;
+    justify-self: center;
+    padding: 0.3rem;
+    padding-left: 0.4rem;
+    padding-right: 0.4rem;
+
+}
+
+.post-button {
+    width: 4rem;
+    height: 4rem;
+    position: relative;
+    cursor: pointer;
+    left: 2rem;
+    border: solid black 0.14rem;
+    
+}
+
+.post-button:hover{
+    background-color: #bdbdbd;
+}
+
+.post-button:active{
+    background-color: #7e7e7e;
+}
+.cafpic {
+    position: fixed;
+    /* height: fit-content;
+    width: fit-content; */
+    object-fit: cover;
+    /* right: 300px; */
+    z-index: -1;
+    opacity: 0.4;
+}
+
+
+
+.scroll-button:hover {
+  background-color: #666;
+}
+
+/* Scroll content horizontally on click */
+.scroll-button:active {
+  background-color: #333;
+}
+
+/* Hide button when there's no more horizontal scrolling to be done */
+.post-content {
+  overflow-x: clip;
+  max-width: 60ch;
+  opacity: 0.8;
+}
+
+/* .post-content::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+Apply horizontal scrolling */
+/* .post-content::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+}
+
+.post-content::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+} */ 
+
+/* Apply the scrolling action to the button */
+.scroll-button:active + .post-content {
+  scroll-behavior: smooth;
+  scroll-snap-align: start;
+  scroll-snap-type: x mandatory;
+  scroll-snap-points-x: repeat(100%);
+  animation: scroll-left 2s linear infinite;
+}
+
+.cool{
+  grid-area: 1/1;
+  display: grid;
+  position: relative;
+  justify-self: center;
+  align-self: center;
+}
+
+.cool button:first-child{
+  display: grid;
+	background-color: rgba(116, 105, 91, 0.5); 
+  position: relative; 
+  align-items: center; 
+  justify-items: center; 
+  height: 8vh;
+  color: #ffffff;
+  font-size: 18px;
+  padding: 8px 20px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.cool ul#menu {
+  /* display: none; */
+  list-style: none;
+  width: 200px;
+  margin-top: 20px;
+}
+
+.cool ul#menu.show {
+  display: contents;
+
+}
+
+.cool ul#menu li {
+  margin: 5px 0;
+  opacity: 0;
+  transition: 0.5s all cubic-bezier(0.31,-0.105,0.43,1.4);
+}
+
+.cool ul#menu li:nth-child(even) {
+  transform: translateX(50px);
+}
+
+.cool ul#menu li:nth-child(odd) {
+  transform: translateX(-50px);
+}
+
+.cool ul#menu li:nth-child(1) {
+  transition-delay: 0.1s;
+}
+
+.cool ul#menu li:nth-child(2) {
+  transition-delay: 0.2s;
+}
+
+.cool ul#menu li:nth-child(3) {
+  transition-delay: 0.3s;
+}
+
+.cool ul#menu li:nth-child(4) {
+  transition-delay: 0.4s;
+}
+
+.cool ul#menu.active li {
+  opacity: 1;
+  transform: translateX(0px);
+}
+
+.cool ul#menu li a {
+  background-color: #ed4e6e;
+  display: block;
+  padding: 8px 20px;
+  font-weight: 500;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 3px;
+}

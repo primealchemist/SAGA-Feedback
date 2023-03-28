@@ -1,20 +1,54 @@
-// const menuToggle = document.querySelector('.menu-toggle');
-// const siteNavigation = document.querySelector('.content-navigation');
+let post = {
+  title: "Good Fries!",
+  author: "Maddie",
+  feedback: "Fries good!",
+  comments: [
+    {
+      body: "I agree",
+      author: "Leila",
+      station: "Grill"
+    }
+  ],
+  // get comments() {
+  //   return this.comments;
+  // },
+  // set comments(value) {
+  //   this.comments = value;
+  // },
+  addComment: function() {
+      let comment = prompt("Comment here:");
+      if (comment) {
+        this.comments.push(comment);
+        this.displayComments();
+      }
+  },
+  displayComments: function() {
+      let list = document.getElementById("comments");
+      list.innerHTML = "";
+      for (let i = 0; i < this.comments.length; i++) {
+          let item = document.createElement("li");
+          item.textContent = this.comments(i);
+          list.appendChild(item);
 
-// menuToggle.addEventListener('click', () => {
-//   const isOpened = menuToggle.getAttribute('aria-expanded') === "true";
-//   isOpened ? closeMenu() : openMenu();
-// });
+      }
+  },
+  likes: 5,
+  shares: 2
+}
 
-// function openMenu() {
-//   menuToggle.setAttribute('aria-expanded', "true");
-//   siteNavigation.setAttribute('data-state', "opened");
-// }
-// function closeMenu() {
-//   menuToggle.setAttribute('aria-expanded', "false");
-//   siteNavigation.setAttribute('data-state', "closing");
+document.getElementById("feedback").textContent=post.description,
+post.displayComments();
 
-//   siteNavigation.addEventListener('animationend', () => {
-//     siteNavigation.setAttribute('data-state', "closed");
-//   }, {once: true})
-// }
+function toggleMenu() {
+  let menu = document.getElementById('menu');
+  menu.classList.toggle('active');
+};
+
+document.addEventListener("click", function(event) {
+  const dropdownMenu = document.querySelector(".cool ul#menu");
+  const webpage = document.querySelector("togglemenu");
+
+  if (!dropdownMenu.contains(event.target) && event.target !== webpage) {
+    dropdownMenu.classList.remove("show");
+  }
+});
