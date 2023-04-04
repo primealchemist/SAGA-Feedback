@@ -1,105 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style2.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-	<script src="script.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Website</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Utopia+Std&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
-
-<header>
-
-	<div class="header">
-		
-		<h1 style="display: grid; color: white; grid-area: 1/1;
-		background-color: rgba(116, 105, 91, 0.5); position: relative; align-items: center; justify-items: center; height: 8vh;"></style><span></span></h1>
-		<div class="cool">
-			<button class= "togglemenu" onclick="toggleMenu()">Menu</button>
-			<ul id="menu">
-				<li><a href="">Salad Bar</a></li>
-				<li><a href="">Italian</a></li>
-				<li><a href="">Chef's Table</a></li>
-				<li><a href="">Vegetarian</a></li>
-				<li><a href="">Deli</a></li>
-				<li><a href="">Grill</a></li>
-				<li><a href="">Soup Island</a></li>
-				<li><a href="">Bravo</a></li>
-			</ul>
-		</div>
-	
-	</div>
-
-</header>
-
-
-
-
-	
-
-
-<main>
-	<div class="container" id="container">
-		<div class="cafpic"><img src="cafeteria.jpg" alt="oops, no image here!"></div>
-		<div class="post">
-			<div class="post-content">
-				<h2>John Doe</h2>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed massa eget leo vehicula efficitur. Nunc euismod, arcu eu scelerisque sagittis, odio dolor semper arcu, in ultricies est justo vel ipsum.</p>
-				<div class="post-footer">
-					<button>Like</button>
-					<button>Disike</button>
-					<button>Comment</button>
-					<button>Share</button>
-				</div>
-			</div>
-			
-		</div>
-
-
-		<button class="scroll-button">&gt;
-
-
-		</button>
-
-		<div class="form-wrapper">
-			<form class="form">
-			<label for="name">Name:</label>
-			<input type="text" id="name" name="name" required>
-			<textarea id="message" name="message" required></textarea>
-
-			<label for="email">Email:</label>
-			<input type="email" id="email" name="email" required>
-			<textarea id="message" name="message" required></textarea>
-
-			<label for="message">Message:</label>
-			<textarea id="message" name="message" required></textarea>
-
-			<button type="submit">Submit</button>
-			</form>
-		</div>
-		
-		<div class="test" id="post">
-			<h1>I love leila!</h1>
-			<h1>My Post</h1>
-			<p>Description: <span id="feedback"></span></p>
-			<button onclick="post.addComment()">Add Comment</button>
-			<ul id="comments"></ul>
-
-
-
-
-
-		</div>
-		
-		<div class="newpost">
-			<div class="make">Add your feedback here!</div>
-			<button class="post-button">
-				<i class="fa-solid fa-plus fa-2xl"></i>
-			</button>
-		</div>	
-	<div>
-</main>
+<body>
+    <header>
+        <h1>Feedback</h1>
+    </header>
+    <main>
+        <div class="feedback-form">
+            <form action="{{ url_for('submit') }}" method="POST">
+                <div class="form-container">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                    <br>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    <br>
+                    <label for="dropdown">Choose a topic:</label>
+                    <select id="dropdown" name="dropdown">
+                        <option value="Salad Bar">Salad Bar</option>
+                        <option value="Italian">Italian</option>
+                        <option value="Chef's Table">Chef's Table</option>
+                        <option value="Vegetarian">Vegetarian</option>
+                        <option value="Deli">Deli</option>
+                        <option value="Grill">Grill</option>
+                        <option value="Soup Island">Soup Island</option>
+                        <option value="Bravo">Bravo</option>
+                    </select>
+                    <br>
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="4" cols="50" required></textarea>
+                    <br>
+                    <input type="submit" value="Submit">
+                </div>
+            </form>
+            <a href="{{ url_for('posts') }}" class="preview-button">Preview the Reviews</a>
+        </div>
+    </main>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
 </html>

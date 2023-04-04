@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Posts</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Feedback Posts</h1>
+    </header>
+    <main>
+        {% for post in posts %}
+            <div class="post">
+                <h2>{{ post[1] }}</h2>
+                <p><strong>Email:</strong> {{ post[2] }}</p>
+                <p><strong>Topic:</strong> {{ post[3] }}</p>
+                <p>{{ post[4] }}</p>
+                <div class="post-actions">
+                    <button class="like-button" data-post-id="{{ post[0] }}" data-liked="{{ post[8] }}">Like</button>
+                    <span class="like-count">{{ post[6] }}</span>
+                    <button class="dislike-button" data-post-id="{{ post[0] }}" data-disliked="{{ post[9] }}">Dislike</button>
+                    <span class="dislike-count">{{ post[7] }}</span>
+                    <form action="{{ url_for('delete_post', post_id=post[0]) }}" method="POST" class="delete-form">
+                        <input type="submit" value="Delete">
+                    </form>
+                </div>
+                <div class="comments">
+                    {% for comment in comments %}
+                        {% if comment[1] == post[0] %}
+                            <div class="comment">
+                                <p><strong>{{ comment[3] }}:</strong> {{ comment[2] }}</p>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+
+                <form action="{{ url_for('add_comment', post_id=post[0]) }}" method="POST">
+                    <label for="commenter_name_{{ post[0] }}">Name:</label>
+                    <input type="text" id="commenter_name_{{ post[0] }}" name="commenter_name" required>
+                    <textarea name="comment" rows="2" cols="50" placeholder="Add a comment..." required></textarea>
+                    <input type="submit" value="Comment">
+                </form>
+            </div>
+        {% endfor %}
+        <button id="back-btn" onclick="goBack()">Back</button>
+    </main>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
